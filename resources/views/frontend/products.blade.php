@@ -483,7 +483,7 @@
         <div class=" container">
             <div class="row justify-content-center p-4">
                 <h1 class="fw-bold fs-4 text-center py-2">Products and Service Information</h1>
-                <img class=" img-fluid img-thumbnail w-25" src="./single product/tv-cabinet-dory-102.png" alt="">
+                <img class=" img-fluid img-thumbnail w-25" src="frontend/content/single product/tv-cabinet-dory-102.png" alt="">
             </div>
             <div class="row py-4">
                 <p class="fw-bold py-3 Tv-Cabinet-document-title">Why Should You Purchase this TV Cabinet?</p>
