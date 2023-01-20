@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommonDropdownController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
@@ -22,3 +23,6 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/', [HomeController::class,'index']);
 Route::get('/products', [ProductController::class,'index'])->name('products');
+Route::get('/products',[CommonDropdownController::class,'getDivisionList'])->name('getDivisionList');;
+Route::get('getDistrictList', [CommonDropdownController::class, 'getDistrictList'])->name('getDistrictList');
+Route::get('getUpazilaList', [CommonDropdownController::class, 'getUpazilaList'])->name('getUpazilaList');

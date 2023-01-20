@@ -13,12 +13,12 @@
                 <div class="col-12 col-sm-8">
                     <div class="row">
                         <div class="col-6 py-2 product-img">
-                            <a href="#"><img src="frontend/content/single product/Dory-102.jpg" class="img-fluid img-thumbnail"
-                                    alt=""></a>
+                            <a href="#"><img src="frontend/content/single product/Dory-102.jpg"
+                                    class="img-fluid img-thumbnail" alt=""></a>
                         </div>
                         <div class="col-6 py-2 product-img">
-                            <a href="#"><img src="frontend/content/single product/Dory-102_0.jpg" class="img-fluid img-thumbnail"
-                                    alt=""></a>
+                            <a href="#"><img src="frontend/content/single product/Dory-102_0.jpg"
+                                    class="img-fluid img-thumbnail" alt=""></a>
                         </div>
                     </div>
                     <div class="row">
@@ -54,8 +54,7 @@
                         <button class="product-size">L770 X W460 X H900 mm</button>
                         <hr>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn text-start" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
+                        <button type="button" class="btn text-start" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             16,300 BDT x 1 = 16,300 BDT
                             <p>EMI options starting from
                                 1,358 BDT
@@ -170,27 +169,32 @@
                             </div>
                         </div>
                         <!-- Modal end -->
-                    <div class="quantity">
-                        <p class=" p-1">QUANTITY</p>
-                        <select class="quantity-form" aria-label="Default select example">
-                            <option selected>0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="3">4</option>
-                            <option value="3">5</option>
-                            <option value="3">6</option>
-                            <option value="3">7</option>
-                            <option value="3">8</option>
-                            <option value="3">9</option>
-                            <option value="3">10</option>
-                        </select>
-                    </div>
+                        <div class="quantity">
+                            <p class=" p-1">QUANTITY</p>
+                            <select class="quantity-form" aria-label="Default select example">
+                                <option selected>0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="3">4</option>
+                                <option value="3">5</option>
+                                <option value="3">6</option>
+                                <option value="3">7</option>
+                                <option value="3">8</option>
+                                <option value="3">9</option>
+                                <option value="3">10</option>
+                            </select>
+                        </div>
 
-                        <div class="districts-list pt-2"> <select class="form-select m-1" name="districts_list"
-                                id="districts_list">
-                                <option value="">Select Location</option>
-                                <option value="Barisal"> Barisal</option>
+                        <div class="divisions-list pt-2">
+                            <select class="form-select m-1" name="divisions_list" id="divisions_list">
+                                <option value="0">Select Division</option>
+                                @if (!empty($divisionList))
+                                    @foreach ($divisionList as $division)
+                                        <option value="{{ $division->id }}">{{ $division->bn_name }}</option>
+                                    @endforeach
+                                @endif
+                                {{-- <option value="Barisal"> Barisal</option>
                                 <option value="Bogra"> Bogra</option>
                                 <option value="Brahmanbaria"> Brahmanbaria</option>
                                 <option value="Chandpur"> Chandpur</option>
@@ -225,89 +229,20 @@
                                 <option value="Rangpur"> Rangpur</option>
                                 <option value="Sirajgonj"> Sirajgonj</option>
                                 <option value="Sylhet"> Sylhet</option>
-                                <option value="Tangail"> Tangail</option>
+                                <option value="Tangail"> Tangail</option> --}}
                             </select>
                             <select class="form-select my-3" name="districts_list" id="districts_list">
-                                <option value="">Select Location</option>
-                                <option value="Barisal"> Barisal</option>
-                                <option value="Bogra"> Bogra</option>
-                                <option value="Brahmanbaria"> Brahmanbaria</option>
-                                <option value="Chandpur"> Chandpur</option>
-                                <option value="Chittagong"> Chittagong</option>
-                                <option value="Comilla"> Comilla</option>
-                                <option value="Dhaka"> Dhaka</option>
-                                <option value="Dinajpur"> Dinajpur</option>
-                                <option value="Faridpur"> Faridpur</option>
-                                <option value="Feni"> Feni</option>
-                                <option value="Gazipur"> Gazipur</option>
-                                <option value="Gopalganj"> Gopalganj</option>
-                                <option value="Habiganj"> Habiganj</option>
-                                <option value="Jamalpur"> Jamalpur</option>
-                                <option value="Jessore"> Jessore</option>
-                                <option value="Jhenaidah"> Jhenaidah</option>
-                                <option value="Joypurhat"> Joypurhat</option>
-                                <option value="Khulna"> Khulna</option>
-                                <option value="Kishoreganj"> Kishoreganj</option>
-                                <option value="Kushtia"> Kushtia</option>
-                                <option value="Lakshmipur"> Lakshmipur</option>
-                                <option value="Manikganj"> Manikganj</option>
-                                <option value="Moulavibazar"> Moulavibazar</option>
-                                <option value="Munshiganj"> Munshiganj</option>
-                                <option value="Mymensingh"> Mymensingh</option>
-                                <option value="Naogaon"> Naogaon</option>
-                                <option value="Narayanganj"> Narayanganj</option>
-                                <option value="Narsingdi"> Narsingdi</option>
-                                <option value="Nilphamari"> Nilphamari</option>
-                                <option value="Noakhali"> Noakhali</option>
-                                <option value="Pabna"> Pabna</option>
-                                <option value="Rajshahi"> Rajshahi</option>
-                                <option value="Rangpur"> Rangpur</option>
-                                <option value="Sirajgonj"> Sirajgonj</option>
-                                <option value="Sylhet"> Sylhet</option>
-                                <option value="Tangail"> Tangail</option></select>
+                                <option value="">Select District</option>
+                            </select>
 
-                               <select class="form-select my-3" name="districts_list" id="districts_list">
-                                <option value="">Select Location</option>
-                                <option value="Barisal"> Barisal</option>
-                                <option value="Bogra"> Bogra</option>
-                                <option value="Brahmanbaria"> Brahmanbaria</option>
-                                <option value="Chandpur"> Chandpur</option>
-                                <option value="Chittagong"> Chittagong</option>
-                                <option value="Comilla"> Comilla</option>
-                                <option value="Dhaka"> Dhaka</option>
-                                <option value="Dinajpur"> Dinajpur</option>
-                                <option value="Faridpur"> Faridpur</option>
-                                <option value="Feni"> Feni</option>
-                                <option value="Gazipur"> Gazipur</option>
-                                <option value="Gopalganj"> Gopalganj</option>
-                                <option value="Habiganj"> Habiganj</option>
-                                <option value="Jamalpur"> Jamalpur</option>
-                                <option value="Jessore"> Jessore</option>
-                                <option value="Jhenaidah"> Jhenaidah</option>
-                                <option value="Joypurhat"> Joypurhat</option>
-                                <option value="Khulna"> Khulna</option>
-                                <option value="Kishoreganj"> Kishoreganj</option>
-                                <option value="Kushtia"> Kushtia</option>
-                                <option value="Lakshmipur"> Lakshmipur</option>
-                                <option value="Manikganj"> Manikganj</option>
-                                <option value="Moulavibazar"> Moulavibazar</option>
-                                <option value="Munshiganj"> Munshiganj</option>
-                                <option value="Mymensingh"> Mymensingh</option>
-                                <option value="Naogaon"> Naogaon</option>
-                                <option value="Narayanganj"> Narayanganj</option>
-                                <option value="Narsingdi"> Narsingdi</option>
-                                <option value="Nilphamari"> Nilphamari</option>
-                                <option value="Noakhali"> Noakhali</option>
-                                <option value="Pabna"> Pabna</option>
-                                <option value="Rajshahi"> Rajshahi</option>
-                                <option value="Rangpur"> Rangpur</option>
-                                <option value="Sirajgonj"> Sirajgonj</option>
-                                <option value="Sylhet"> Sylhet</option>
-                                <option value="Tangail"> Tangail</option>
+                            <select class="form-select my-3" name="upazila_list" id="upazila_list">
+                                <option value="">Select Upazilla</option>
                             </select>
                             <p class="p-2">Estimated date is
                                 Please select district and area to get possible delivery date</p>
-                                <div class="d-grid gap-2"><button class="btn primary-bg"><span class="cart-title"><a class=" text-white" href="#">Add to cart</a></span> <span class="fas fa-shopping-cart"></span></button></div>
+                            <div class="d-grid gap-2"><button class="btn primary-bg" id="cartButton"><span
+                                        class="cart-title"><a class=" text-white" href="#">Add to cart</a></span>
+                                    <span class="fas fa-shopping-cart"></span></button></div>
                         </div>
                     </div>
                 </div>
@@ -331,13 +266,16 @@
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="frontend/content/single product/Dory-102-DI_1.jpg" class="d-block w-100" alt="...">
+                                <img src="frontend/content/single product/Dory-102-DI_1.jpg" class="d-block w-100"
+                                    alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="frontend/content/single product/Dory-102-DI_2.jpg" class="d-block w-100" alt="...">
+                                <img src="frontend/content/single product/Dory-102-DI_2.jpg" class="d-block w-100"
+                                    alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="frontend/content/single product/Dory-102-DI_3.jpg" class="d-block w-100" alt="...">
+                                <img src="frontend/content/single product/Dory-102-DI_3.jpg" class="d-block w-100"
+                                    alt="...">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -483,7 +421,8 @@
         <div class=" container">
             <div class="row justify-content-center p-4">
                 <h1 class="fw-bold fs-4 text-center py-2">Products and Service Information</h1>
-                <img class=" img-fluid img-thumbnail w-25" src="frontend/content/single product/tv-cabinet-dory-102.png" alt="">
+                <img class=" img-fluid img-thumbnail w-25" src="frontend/content/single product/tv-cabinet-dory-102.png"
+                    alt="">
             </div>
             <div class="row py-4">
                 <p class="fw-bold py-3 Tv-Cabinet-document-title">Why Should You Purchase this TV Cabinet?</p>
