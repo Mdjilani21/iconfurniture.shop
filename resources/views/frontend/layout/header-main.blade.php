@@ -7,10 +7,13 @@
                 </div>
             </div>
             <div class="col-6">
+                <form action="{{ route('productListPage') }}" method="GET">
+                    @csrf
                 <div class="h-search">
-                    <input type="text" placeholder="Search Products..............."><button
-                        class=" h-search-button primary-bg primary-style" type="button">Search</button>
+                    <input type="text" name="productName" id="searchProduct" placeholder="Search Products..............."><button
+                        class=" h-search-button primary-bg primary-style" type="submit">Search</button>
                 </div>
+                </form>
             </div>
             <div class="col-4">
                 <ul class=" nav justify-content-end">

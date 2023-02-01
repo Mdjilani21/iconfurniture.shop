@@ -23,6 +23,10 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/', [HomeController::class,'index']);
 Route::get('/products', [ProductController::class,'index'])->name('products');
-Route::get('/products',[CommonDropdownController::class,'getDivisionList'])->name('getDivisionList');;
+Route::get('/products',[CommonDropdownController::class,'getDivisionList'])->name('getDivisionList');
 Route::get('getDistrictList', [CommonDropdownController::class, 'getDistrictList'])->name('getDistrictList');
 Route::get('getUpazilaList', [CommonDropdownController::class, 'getUpazilaList'])->name('getUpazilaList');
+
+
+Route::get('productList', [ProductController::class,'productListAjax'])->name('productListAjax');
+Route::get('searchProduct', [ProductController::class,'searchProduct'])->name('productListPage');
