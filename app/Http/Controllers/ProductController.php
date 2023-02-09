@@ -7,9 +7,15 @@ use App\Models\Products;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('frontend.products');
+        $product = Products::all();
+        return view('frontend.products', compact('product'));
+    }
+    public function allProduct(Request $request)
+    {
+        $product = Products::all();
+        return view('frontend.pages.allProduct', compact('product'));
     }
 
     public function productListAjax()

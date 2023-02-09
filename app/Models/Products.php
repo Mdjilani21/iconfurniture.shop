@@ -12,12 +12,23 @@ class Products extends Model
     protected $fillable = [
         'id',
         'name',
+        'shortInfo',
+        'category',
         'material',
-        'color',
-        'size',
-        'quantity',
+        'materialColor',
+        'productSize',
+        'productQuantity',
+        'productImages',
+        'branchDivision',
+        'branchDistrict',
+        'branchUpazila',
+        'DiscountRange',
+        'discount',
+        'discountType',
         'price',
         'status',
-        'warranty'
+        'warranty',
+        'tags',
+        'barcode',
     ];
 }

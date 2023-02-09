@@ -5,6 +5,8 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
@@ -18,35 +20,32 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 
-{{-- ajax search starts here --}}
+    {{-- ajax search starts here --}}
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
     <script>
-        
-            var availableTags = [];
-            $.ajax({
-                type: "GET",
-                url: "/productList",
+        var availableTags = [];
+        $.ajax({
+            type: "GET",
+            url: "/productList",
 
-                success: function(response){
-                    console.log(response);
-                    startAutoComplete(response);
-                }
-            });
+            success: function(response) {
+                console.log(response);
+                startAutoComplete(response);
+            }
+        });
 
-            function startAutoComplete(availableTags)
-            {
-                $("#searchProduct").autocomplete({
+        function startAutoComplete(availableTags) {
+            $("#searchProduct").autocomplete({
                 source: availableTags
             });
-            }
-            
+        }
     </script>
 
-{{-- ajax search ends here --}}
+    {{-- ajax search ends here --}}
 
     {{-- district and upazila list get from CommonDropdownController --}}
     <script>

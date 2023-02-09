@@ -1,7 +1,125 @@
 @extends('frontend.layout.app')
 
 @section('main-body')
-<!-- hiro section-->
+    <!-- Header Main -->
+    <header class="header-main-pc">
+        <div class=" container border-dark border-bottom py-3">
+            <div class="row">
+                <div class="col-2">
+                    <div class="h-logo">
+                        <img src="frontend/content/lmg/logo.png" alt="">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <form action="{{ route('productListPage') }}" method="GET">
+                        @csrf
+                        <div class="h-search">
+                            <input type="text" name="productName" id="searchProduct"
+                                placeholder="Search Products..............."><button
+                                class=" h-search-button primary-bg primary-style" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-4">
+                    <ul class=" nav justify-content-end">
+                        @if (Session::get('name'))
+                            <li class=" nav-item"><a class=" nav-link primary-style primary-bg Login-button"
+                                    href="">{{ Session::get('name') }}
+                                    <p class="far fa-user"></p>
+                                </a>
+                            </li>
+                            <li class=" nav-item"><a class=" nav-link primary-style primary-bg Logout-button"
+                                href="{{ route('logout') }}">Logout
+                                <p class="far fa-user"></p>
+                            </a>
+                            </li>
+                            <li class=" nav-item"><a class=" nav-link far fa-heart primary-text fs-4" href=""></a>
+                            </li>
+                            <li class=" nav-item "><a class=" nav-link fas fa-shopping-cart primary-text fs-4"
+                                    href=""></a>
+                            </li>
+                        @else
+                            <li class=" nav-item"><a class=" nav-link primary-style primary-bg Login-button"
+                                    href="{{ route('login') }}">Login
+                                    <p class="far fa-user"></p>
+                                </a></li>
+                            <li class=" nav-item"><a class=" nav-link far fa-heart primary-text fs-4" href=""></a>
+                            </li>
+                            <li class=" nav-item "><a class=" nav-link fas fa-shopping-cart primary-text fs-4"
+                                    href=""></a>
+                            </li>
+                        @endif
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <header class="header-button-pc">
+        <div class=" container py-2">
+            <div class="row">
+                <div class="col-12">
+                    <div class="header-menu">
+                        <ul class=" nav mr-auto">
+
+                            <li class=" nav-item "><a class=" nav-link hover-style" href="#">Great Festive sale</a>
+                            </li>
+                            <li class=" nav-item "><a class=" nav-link hover-style" href="#">International
+                                    Collection</a></li>
+                            <li class=" nav-item "><a class=" nav-link hover-style" href="#">Living</a></li>
+                            <li class=" nav-item "><a class=" nav-link hover-style" href="#">Bedroom</a></li>
+                            <li class=" nav-item "><a class=" nav-link hover-style" href="#">Dining</a></li>
+                            <li class=" nav-item "><a class=" nav-link hover-style" href="#">Home Office</a></li>
+                            <li class=" nav-item "><a class=" nav-link hover-style" href="#">Outdoor</a></li>
+                            <li class=" nav-item "><a class=" nav-link hover-style" href="#">Furnishing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- header mobile -->
+    <header class=" header-mobile">
+        <div class="momile-menu container ">
+            <div class="header-menu navbar">
+                <div class="mobile-menu-logo navbar-brand">
+                    <img src="frontend/content/lmg/logo.png" alt="">
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="fas fa-bars"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class=" navbar-nav">
+                        <li class=" nav-item "><a class=" nav-link hover-style" href="#">Great Festive sale</a></li>
+                        <li class=" nav-item "><a class=" nav-link hover-style" href="#">International Collection</a>
+                        </li>
+                        <li class=" nav-item "><a class=" nav-link hover-style" href="#">Living</a></li>
+                        <li class=" nav-item "><a class=" nav-link hover-style" href="#">Bedroom</a></li>
+                        <li class=" nav-item "><a class=" nav-link hover-style" href="#">Dining</a></li>
+                        <li class=" nav-item "><a class=" nav-link hover-style" href="#">Home Office</a></li>
+                        <li class=" nav-item "><a class=" nav-link hover-style" href="#">Outdoor</a></li>
+                        <li class=" nav-item "><a class=" nav-link hover-style" href="#">Furnishing</a></li>
+                    </ul>
+
+                    <div class="h-search">
+                        <input type="text" placeholder="Search Products..............."><button
+                            class=" h-search-button primary-bg primary-style" type="button">Search</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- HEader Main Ends -->
+
+    <!-- hiro section-->
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -43,12 +161,14 @@
                 <div class="col-sm-6 col-lg-3 text-center">
                     <div class="row">
                         <div class="category-list-item col-6">
-                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Sofas.jpg" alt="">
+                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Sofas.jpg"
+                                    alt="">
                             <p class="">Sofas</p>
                             </p>
                         </div>
                         <div class="category-list-item col-6">
-                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Beds.jpg" alt="">
+                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Beds.jpg"
+                                    alt="">
                             <p class="">Beds</p>
                             </p>
                         </div>
@@ -57,12 +177,14 @@
                 <div class="col-sm-6 col-lg-3 text-center">
                     <div class="row">
                         <div class="category-list-item col-6">
-                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Sofas.jpg" alt="">
+                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Sofas.jpg"
+                                    alt="">
                             <p class="">Sofas</p>
                             </p>
                         </div>
                         <div class="category-list-item col-6">
-                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Beds.jpg" alt="">
+                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Beds.jpg"
+                                    alt="">
                             <p class="">Beds</p>
                             </p>
                         </div>
@@ -71,12 +193,14 @@
                 <div class="col-sm-6 col-lg-3 text-center">
                     <div class="row">
                         <div class="category-list-item col-6">
-                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Sofas.jpg" alt="">
+                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Sofas.jpg"
+                                    alt="">
                             <p class="">Sofas</p>
                             </p>
                         </div>
                         <div class="category-list-item col-6">
-                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Beds.jpg" alt="">
+                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Beds.jpg"
+                                    alt="">
                             <p class="">Beds</p>
                             </p>
                         </div>
@@ -85,12 +209,14 @@
                 <div class="col-sm-6 col-lg-3 text-center">
                     <div class="row">
                         <div class="category-list-item col-6">
-                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Sofas.jpg" alt="">
+                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Sofas.jpg"
+                                    alt="">
                             <p class="">Sofas</p>
                             </p>
                         </div>
                         <div class="category-list-item col-6">
-                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Beds.jpg" alt="">
+                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Beds.jpg"
+                                    alt="">
                             <p class="">Beds</p>
                             </p>
                         </div>
@@ -101,12 +227,14 @@
                 <div class="col-sm-6 col-lg-3 text-center">
                     <div class="row">
                         <div class="category-list-item col-6">
-                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Sofas.jpg" alt="">
+                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Sofas.jpg"
+                                    alt="">
                             <p class="">Sofas</p>
                             </p>
                         </div>
                         <div class="category-list-item col-6">
-                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Beds.jpg" alt="">
+                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Beds.jpg"
+                                    alt="">
                             <p class="">Beds</p>
                             </p>
                         </div>
@@ -115,12 +243,14 @@
                 <div class="col-sm-6 col-lg-3 text-center">
                     <div class="row">
                         <div class="category-list-item col-6">
-                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Sofas.jpg" alt="">
+                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Sofas.jpg"
+                                    alt="">
                             <p class="">Sofas</p>
                             </p>
                         </div>
                         <div class="category-list-item col-6">
-                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Beds.jpg" alt="">
+                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Beds.jpg"
+                                    alt="">
                             <p class="">Beds</p>
                             </p>
                         </div>
@@ -129,12 +259,14 @@
                 <div class="col-sm-6 col-lg-3 text-center">
                     <div class="row">
                         <div class="category-list-item col-6">
-                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Sofas.jpg" alt="">
+                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Sofas.jpg"
+                                    alt="">
                             <p class="">Sofas</p>
                             </p>
                         </div>
                         <div class="category-list-item col-6">
-                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Beds.jpg" alt="">
+                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Beds.jpg"
+                                    alt="">
                             <p class="">Beds</p>
                             </p>
                         </div>
@@ -143,12 +275,14 @@
                 <div class="col-sm-6 col-lg-3 text-center">
                     <div class="row">
                         <div class="category-list-item col-6">
-                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Sofas.jpg" alt="">
+                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Sofas.jpg"
+                                    alt="">
                             <p class="">Sofas</p>
                             </p>
                         </div>
                         <div class="category-list-item col-6">
-                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Beds.jpg" alt="">
+                            <p><img class="img-fluid rounded-circle img-thumbnail" src="frontend/content/lmg/Beds.jpg"
+                                    alt="">
                             <p class="">Beds</p>
                             </p>
                         </div>
@@ -180,27 +314,33 @@
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <div class="card p-3 m-2">
-                                            <img src="frontend/content/lmg/category-list.jpg" class="card-img-top" alt="...">
+                                            <img src="frontend/content/lmg/category-list.jpg" class="card-img-top"
+                                                alt="...">
                                             <div class="card-body ">
-                                                <h5 class="card-title"><a class="primary-hover-text" href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
+                                                <h5 class="card-title"><a class="primary-hover-text"
+                                                        href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
                                                 <a href="#" class="btn primary-bg Buy-Now-button">EXPLORE NOW</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="card p-3 m-2">
-                                            <img src="frontend/content/lmg/Office.jpg" class="card-img-top" alt="...">
+                                            <img src="frontend/content/lmg/Office.jpg" class="card-img-top"
+                                                alt="...">
                                             <div class="card-body ">
-                                                <h5 class="card-title"><a class="primary-hover-text" href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
+                                                <h5 class="card-title"><a class="primary-hover-text"
+                                                        href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
                                                 <a href="#" class="btn primary-bg Buy-Now-button">EXPLORE NOW</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="card p-3 m-2">
-                                            <img src="frontend/content/lmg/Living.jpg" class="card-img-top" alt="...">
+                                            <img src="frontend/content/lmg/Living.jpg" class="card-img-top"
+                                                alt="...">
                                             <div class="card-body ">
-                                                <h5 class="card-title"><a class="primary-hover-text" href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
+                                                <h5 class="card-title"><a class="primary-hover-text"
+                                                        href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
                                                 <a href="#" class="btn primary-bg Buy-Now-button">EXPLORE NOW</a>
                                             </div>
                                         </div>
@@ -216,27 +356,33 @@
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <div class="card p-3 m-2">
-                                            <img src="frontend/content/lmg/category-list.jpg" class="card-img-top" alt="...">
+                                            <img src="frontend/content/lmg/category-list.jpg" class="card-img-top"
+                                                alt="...">
                                             <div class="card-body ">
-                                                <h5 class="card-title"><a class="primary-hover-text" href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
+                                                <h5 class="card-title"><a class="primary-hover-text"
+                                                        href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
                                                 <a href="#" class="btn primary-bg">EXPLORE NOW</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="card p-3 m-2">
-                                            <img src="frontend/content/lmg/Office.jpg" class="card-img-top" alt="...">
+                                            <img src="frontend/content/lmg/Office.jpg" class="card-img-top"
+                                                alt="...">
                                             <div class="card-body ">
-                                                <h5 class="card-title"><a class="primary-hover-text" href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
+                                                <h5 class="card-title"><a class="primary-hover-text"
+                                                        href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
                                                 <a href="#" class="btn primary-bg">EXPLORE NOW</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="card p-3 m-2">
-                                            <img src="frontend/content/lmg/Living.jpg" class="card-img-top" alt="...">
+                                            <img src="frontend/content/lmg/Living.jpg" class="card-img-top"
+                                                alt="...">
                                             <div class="card-body ">
-                                                <h5 class="card-title"><a class="primary-hover-text" href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
+                                                <h5 class="card-title"><a class="primary-hover-text"
+                                                        href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
                                                 <a href="#" class="btn primary-bg">EXPLORE NOW</a>
                                             </div>
                                         </div>
@@ -251,27 +397,33 @@
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <div class="card p-3 m-2">
-                                            <img src="frontend/content/lmg/category-list.jpg" class="card-img-top" alt="...">
+                                            <img src="frontend/content/lmg/category-list.jpg" class="card-img-top"
+                                                alt="...">
                                             <div class="card-body ">
-                                                <h5 class="card-title"><a class="primary-hover-text" href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
+                                                <h5 class="card-title"><a class="primary-hover-text"
+                                                        href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
                                                 <a href="#" class="btn primary-bg">EXPLORE NOW</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="card p-3 m-2">
-                                            <img src="frontend/content/lmg/Office.jpg" class="card-img-top" alt="...">
+                                            <img src="frontend/content/lmg/Office.jpg" class="card-img-top"
+                                                alt="...">
                                             <div class="card-body ">
-                                                <h5 class="card-title"><a class="primary-hover-text" href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
+                                                <h5 class="card-title"><a class="primary-hover-text"
+                                                        href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
                                                 <a href="#" class="btn primary-bg">EXPLORE NOW</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="card p-3 m-2">
-                                            <img src="frontend/content/lmg/Living.jpg" class="card-img-top" alt="...">
+                                            <img src="frontend/content/lmg/Living.jpg" class="card-img-top"
+                                                alt="...">
                                             <div class="card-body ">
-                                                <h5 class="card-title"><a class="primary-hover-text" href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
+                                                <h5 class="card-title"><a class="primary-hover-text"
+                                                        href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
                                                 <a href="#" class="btn primary-bg">EXPLORE NOW</a>
                                             </div>
                                         </div>
@@ -303,7 +455,8 @@
                     <div class="card p-3 m-2">
                         <img src="frontend/content/lmg/category-list.jpg" class="card-img-top" alt="...">
                         <div class="card-body ">
-                            <h5 class="card-title"><a class="primary-hover-text" href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
+                            <h5 class="card-title"><a class="primary-hover-text"
+                                    href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
                             <a href="#" class="btn primary-bg">EXPLORE NOW</a>
                         </div>
                     </div>
@@ -312,7 +465,8 @@
                     <div class="card p-3 m-2">
                         <img src="frontend/content/lmg/Office.jpg" class="card-img-top" alt="...">
                         <div class="card-body ">
-                            <h5 class="card-title"><a class="primary-hover-text" href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
+                            <h5 class="card-title"><a class="primary-hover-text"
+                                    href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
                             <a href="#" class="btn primary-bg">EXPLORE NOW</a>
                         </div>
                     </div>
@@ -321,7 +475,8 @@
                     <div class="card p-3 m-2">
                         <img src="frontend/content/lmg/Living.jpg" class="card-img-top" alt="...">
                         <div class="card-body ">
-                            <h5 class="card-title"><a class="primary-hover-text" href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
+                            <h5 class="card-title"><a class="primary-hover-text"
+                                    href="https://iconfurniture.shop/products.html">Bedroom</a></h5>
                             <a href="#" class="btn primary-bg">EXPLORE NOW</a>
                         </div>
                     </div>
@@ -358,14 +513,17 @@
                 <div class="col-6 col-md-4 p-3">
                     <div class="card product-card">
                         <div class="product-img">
-                            <img src="frontend/content/lmg/Screenshot_4.png" class="card-img-top img-fluid product-img-1" alt="...">
-                            <img src="frontend/content/lmg/Screenshot_5.png" class="card-img-top img-fluid product-img-2" alt="...">
+                            <img src="frontend/content/lmg/Screenshot_4.png" class="card-img-top img-fluid product-img-1"
+                                alt="...">
+                            <img src="frontend/content/lmg/Screenshot_5.png" class="card-img-top img-fluid product-img-2"
+                                alt="...">
                             <ul class="product-buy-itm text-center">
                                 <i class="" data-bs-toggle="popover" title="Add to card" data-bs-animation="false"
                                     data-bs-placement="top"><a class="fas fa-shopping-basket Add-to-card"
                                         href="#"></a></i>
-                                <i class="" data-bs-toggle="popover" title="Add to wishlist" data-bs-animation="false"
-                                    data-bs-placement="top"><a class="fas fa-heart Add-to-wishlist" href="#"></a></i>
+                                <i class="" data-bs-toggle="popover" title="Add to wishlist"
+                                    data-bs-animation="false" data-bs-placement="top"><a
+                                        class="fas fa-heart Add-to-wishlist" href="#"></a></i>
                                 <i class="" data-bs-toggle="popover" title="Quick View" data-bs-animation="false"
                                     data-bs-placement="top"><a class="fas fa-eye Quick-View" href="#"></a></i>
                             </ul>
@@ -373,7 +531,8 @@
 
 
                         <div class="card-body">
-                            <h5 class="card-title product-title m-0"><a class="primary-hover-text" href="https://iconfurniture.shop/products.html">chair</a></h5>
+                            <h5 class="card-title product-title m-0"><a class="primary-hover-text"
+                                    href="https://iconfurniture.shop/products.html">chair</a></h5>
                             <p class="card-text py-2 product-discrimination">Berlynoak Ford Wooden Dining Table 4S
                             </p>
                             <div class="price">
@@ -387,14 +546,17 @@
                 <div class="col-6 col-md-4 p-3">
                     <div class="card product-card">
                         <div class="product-img">
-                            <img src="frontend/content/lmg/Screenshot_4.png" class="card-img-top img-fluid product-img-1" alt="...">
-                            <img src="frontend/content/lmg/Screenshot_5.png" class="card-img-top img-fluid product-img-2" alt="...">
+                            <img src="frontend/content/lmg/Screenshot_4.png" class="card-img-top img-fluid product-img-1"
+                                alt="...">
+                            <img src="frontend/content/lmg/Screenshot_5.png" class="card-img-top img-fluid product-img-2"
+                                alt="...">
                             <ul class="product-buy-itm text-center">
                                 <i class="" data-bs-toggle="popover" title="Add to card" data-bs-animation="false"
                                     data-bs-placement="top"><a class="fas fa-shopping-basket Add-to-card"
                                         href="#"></a></i>
-                                <i class="" data-bs-toggle="popover" title="Add to wishlist" data-bs-animation="false"
-                                    data-bs-placement="top"><a class="fas fa-heart Add-to-wishlist" href="#"></a></i>
+                                <i class="" data-bs-toggle="popover" title="Add to wishlist"
+                                    data-bs-animation="false" data-bs-placement="top"><a
+                                        class="fas fa-heart Add-to-wishlist" href="#"></a></i>
                                 <i class="" data-bs-toggle="popover" title="Quick View" data-bs-animation="false"
                                     data-bs-placement="top"><a class="fas fa-eye Quick-View" href="#"></a></i>
                             </ul>
@@ -402,7 +564,8 @@
 
 
                         <div class="card-body">
-                            <h5 class="card-title product-title m-0"><a class="primary-hover-text" href="https://iconfurniture.shop/products.html">chair</a></h5>
+                            <h5 class="card-title product-title m-0"><a class="primary-hover-text"
+                                    href="https://iconfurniture.shop/products.html">chair</a></h5>
                             <p class="card-text py-2 product-discrimination">Berlynoak Ford Wooden Dining Table 4S
                             </p>
                             <div class="price">
@@ -416,14 +579,17 @@
                 <div class="col-6 col-md-4 p-3">
                     <div class="card product-card">
                         <div class="product-img">
-                            <img src="frontend/content/lmg/Screenshot_4.png" class="card-img-top img-fluid product-img-1" alt="...">
-                            <img src="frontend/content/lmg/Screenshot_5.png" class="card-img-top img-fluid product-img-2" alt="...">
+                            <img src="frontend/content/lmg/Screenshot_4.png" class="card-img-top img-fluid product-img-1"
+                                alt="...">
+                            <img src="frontend/content/lmg/Screenshot_5.png" class="card-img-top img-fluid product-img-2"
+                                alt="...">
                             <ul class="product-buy-itm text-center">
                                 <i class="" data-bs-toggle="popover" title="Add to card" data-bs-animation="false"
                                     data-bs-placement="top"><a class="fas fa-shopping-basket Add-to-card"
                                         href="#"></a></i>
-                                <i class="" data-bs-toggle="popover" title="Add to wishlist" data-bs-animation="false"
-                                    data-bs-placement="top"><a class="fas fa-heart Add-to-wishlist" href="#"></a></i>
+                                <i class="" data-bs-toggle="popover" title="Add to wishlist"
+                                    data-bs-animation="false" data-bs-placement="top"><a
+                                        class="fas fa-heart Add-to-wishlist" href="#"></a></i>
                                 <i class="" data-bs-toggle="popover" title="Quick View" data-bs-animation="false"
                                     data-bs-placement="top"><a class="fas fa-eye Quick-View" href="#"></a></i>
                             </ul>
@@ -431,7 +597,8 @@
 
 
                         <div class="card-body">
-                            <h5 class="card-title product-title m-0"><a class="primary-hover-text" href="https://iconfurniture.shop/products.html">chair</a></h5>
+                            <h5 class="card-title product-title m-0"><a class="primary-hover-text"
+                                    href="https://iconfurniture.shop/products.html">chair</a></h5>
                             <p class="card-text py-2 product-discrimination">Berlynoak Ford Wooden Dining Table 4S
                             </p>
                             <div class="price">
@@ -557,8 +724,9 @@
                                 <i class="" data-bs-toggle="popover" title="Add to card" data-bs-animation="false"
                                     data-bs-placement="top"><a class="fas fa-shopping-basket Add-to-card"
                                         href="#"></a></i>
-                                <i class="" data-bs-toggle="popover" title="Add to wishlist" data-bs-animation="false"
-                                    data-bs-placement="top"><a class="fas fa-heart Add-to-wishlist" href="#"></a></i>
+                                <i class="" data-bs-toggle="popover" title="Add to wishlist"
+                                    data-bs-animation="false" data-bs-placement="top"><a
+                                        class="fas fa-heart Add-to-wishlist" href="#"></a></i>
                                 <i class="" data-bs-toggle="popover" title="Quick View" data-bs-animation="false"
                                     data-bs-placement="top"><a class="fas fa-eye Quick-View" href="#"></a></i>
                             </ul>
@@ -566,7 +734,8 @@
 
 
                         <div class="card-body">
-                            <h5 class="card-title product-title m-0"><a class="primary-hover-text" href="https://iconfurniture.shop/products.html">chair</a></h5>
+                            <h5 class="card-title product-title m-0"><a class="primary-hover-text"
+                                    href="https://iconfurniture.shop/products.html">chair</a></h5>
                             <p class="card-text product-discrimination">Berlynoak Ford Wooden Dining Table 4S
                             </p>
                             <div class="price">
@@ -588,8 +757,9 @@
                                 <i class="" data-bs-toggle="popover" title="Add to card" data-bs-animation="false"
                                     data-bs-placement="top"><a class="fas fa-shopping-basket Add-to-card"
                                         href="#"></a></i>
-                                <i class="" data-bs-toggle="popover" title="Add to wishlist" data-bs-animation="false"
-                                    data-bs-placement="top"><a class="fas fa-heart Add-to-wishlist" href="#"></a></i>
+                                <i class="" data-bs-toggle="popover" title="Add to wishlist"
+                                    data-bs-animation="false" data-bs-placement="top"><a
+                                        class="fas fa-heart Add-to-wishlist" href="#"></a></i>
                                 <i class="" data-bs-toggle="popover" title="Quick View" data-bs-animation="false"
                                     data-bs-placement="top"><a class="fas fa-eye Quick-View" href="#"></a></i>
                             </ul>
@@ -597,7 +767,8 @@
 
 
                         <div class="card-body">
-                            <h5 class="card-title product-title m-0"><a class="primary-hover-text" href="https://iconfurniture.shop/products.html">chair</a></h5>
+                            <h5 class="card-title product-title m-0"><a class="primary-hover-text"
+                                    href="https://iconfurniture.shop/products.html">chair</a></h5>
                             <p class="card-text product-discrimination">Berlynoak Ford Wooden Dining Table 4S
                             </p>
                             <div class="price">
@@ -619,8 +790,9 @@
                                 <i class="" data-bs-toggle="popover" title="Add to card" data-bs-animation="false"
                                     data-bs-placement="top"><a class="fas fa-shopping-basket Add-to-card"
                                         href="#"></a></i>
-                                <i class="" data-bs-toggle="popover" title="Add to wishlist" data-bs-animation="false"
-                                    data-bs-placement="top"><a class="fas fa-heart Add-to-wishlist" href="#"></a></i>
+                                <i class="" data-bs-toggle="popover" title="Add to wishlist"
+                                    data-bs-animation="false" data-bs-placement="top"><a
+                                        class="fas fa-heart Add-to-wishlist" href="#"></a></i>
                                 <i class="" data-bs-toggle="popover" title="Quick View" data-bs-animation="false"
                                     data-bs-placement="top"><a class="fas fa-eye Quick-View" href="#"></a></i>
                             </ul>
@@ -628,7 +800,8 @@
 
 
                         <div class="card-body">
-                            <h5 class="card-title product-title m-0"><a class="primary-hover-text" href="https://iconfurniture.shop/products.html">chair</a></h5>
+                            <h5 class="card-title product-title m-0"><a class="primary-hover-text"
+                                    href="https://iconfurniture.shop/products.html">chair</a></h5>
                             <p class="card-text product-discrimination">Berlynoak Ford Wooden Dining Table 4S
                             </p>
                             <div class="price">
@@ -655,8 +828,9 @@
                                 <i class="" data-bs-toggle="popover" title="Add to card" data-bs-animation="false"
                                     data-bs-placement="top"><a class="fas fa-shopping-basket Add-to-card"
                                         href="#"></a></i>
-                                <i class="" data-bs-toggle="popover" title="Add to wishlist" data-bs-animation="false"
-                                    data-bs-placement="top"><a class="fas fa-heart Add-to-wishlist" href="#"></a></i>
+                                <i class="" data-bs-toggle="popover" title="Add to wishlist"
+                                    data-bs-animation="false" data-bs-placement="top"><a
+                                        class="fas fa-heart Add-to-wishlist" href="#"></a></i>
                                 <i class="" data-bs-toggle="popover" title="Quick View" data-bs-animation="false"
                                     data-bs-placement="top"><a class="fas fa-eye Quick-View" href="#"></a></i>
                             </ul>
@@ -664,7 +838,8 @@
 
 
                         <div class="card-body">
-                            <h5 class="card-title product-title m-0"><a class="primary-hover-text" href="https://iconfurniture.shop/products.html">chair</a></h5>
+                            <h5 class="card-title product-title m-0"><a class="primary-hover-text"
+                                    href="https://iconfurniture.shop/products.html">chair</a></h5>
                             <p class="card-text product-discrimination">Berlynoak Ford Wooden Dining Table 4S
                             </p>
                             <div class="price">
@@ -686,8 +861,9 @@
                                 <i class="" data-bs-toggle="popover" title="Add to card" data-bs-animation="false"
                                     data-bs-placement="top"><a class="fas fa-shopping-basket Add-to-card"
                                         href="#"></a></i>
-                                <i class="" data-bs-toggle="popover" title="Add to wishlist" data-bs-animation="false"
-                                    data-bs-placement="top"><a class="fas fa-heart Add-to-wishlist" href="#"></a></i>
+                                <i class="" data-bs-toggle="popover" title="Add to wishlist"
+                                    data-bs-animation="false" data-bs-placement="top"><a
+                                        class="fas fa-heart Add-to-wishlist" href="#"></a></i>
                                 <i class="" data-bs-toggle="popover" title="Quick View" data-bs-animation="false"
                                     data-bs-placement="top"><a class="fas fa-eye Quick-View" href="#"></a></i>
                             </ul>
@@ -695,7 +871,8 @@
 
 
                         <div class="card-body">
-                            <h5 class="card-title product-title m-0"><a class="primary-hover-text" href="https://iconfurniture.shop/products.html">chair</a></h5>
+                            <h5 class="card-title product-title m-0"><a class="primary-hover-text"
+                                    href="https://iconfurniture.shop/products.html">chair</a></h5>
                             <p class="card-text product-discrimination">Berlynoak Ford Wooden Dining Table 4S
                             </p>
                             <div class="price">
@@ -722,8 +899,9 @@
                                 <i class="" data-bs-toggle="popover" title="Add to card" data-bs-animation="false"
                                     data-bs-placement="top"><a class="fas fa-shopping-basket Add-to-card"
                                         href="#"></a></i>
-                                <i class="" data-bs-toggle="popover" title="Add to wishlist" data-bs-animation="false"
-                                    data-bs-placement="top"><a class="fas fa-heart Add-to-wishlist" href="#"></a></i>
+                                <i class="" data-bs-toggle="popover" title="Add to wishlist"
+                                    data-bs-animation="false" data-bs-placement="top"><a
+                                        class="fas fa-heart Add-to-wishlist" href="#"></a></i>
                                 <i class="" data-bs-toggle="popover" title="Quick View" data-bs-animation="false"
                                     data-bs-placement="top"><a class="fas fa-eye Quick-View" href="#"></a></i>
                             </ul>
@@ -731,7 +909,8 @@
 
 
                         <div class="card-body">
-                            <h5 class="card-title product-title m-0"><a class="primary-hover-text" href="https://iconfurniture.shop/products.html">chair</a></h5>
+                            <h5 class="card-title product-title m-0"><a class="primary-hover-text"
+                                    href="https://iconfurniture.shop/products.html">chair</a></h5>
                             <p class="card-text product-discrimination">Berlynoak Ford Wooden Dining Table 4S
                             </p>
                             <div class="price">
@@ -766,7 +945,3 @@
         </div>
     </div>
 @endsection
-   
-
-
-
